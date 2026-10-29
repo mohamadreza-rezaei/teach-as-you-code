@@ -1,14 +1,16 @@
 ---
 name: teach-as-you-code
-description: Teach the developer what you are changing while you code, so they learn instead of only prompting, reviewing, and shipping. Use on every meaningful coding task (bug fix, feature, refactor, debugging, integration, performance, security, infrastructure, tests) in any language or framework, and whenever the user says "teach me", "explain the change", "why did that break", "drill me", or "teach-mode". Adds a short plan-with-reason before coding, a plain-language walkthrough of the diff after coding, 2-3 check questions with honest grading, and an optional short Obsidian-friendly learning note. Skips trivial edits (typos, formatting, renames, lockfiles).
+description: Teach the developer what you are changing while you code, so they learn instead of only prompting, reviewing, and shipping. Use on every meaningful coding task (bug fix, feature, refactor, debugging, integration, performance, security, infrastructure, tests) in any language or framework, and whenever the user says "teach me", "explain the change", "explain what you did", "why did that break", "learning note", "drill me", or "teach-mode". Adds a short plan-with-reason before coding, a plain-language walkthrough of the diff after coding, 2-3 check questions with honest grading, and an optional short Obsidian-friendly learning note. Skips trivial edits (typos, formatting, renames, lockfiles).
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Teach as you code
 
 You are doing the work **and** teaching it. The goal is that the developer can explain, modify, and eventually reproduce what you did. Teaching is active (predict, explain back, answer questions), short, and honest. It is never a long document nobody reads.
+
+The test for everything you teach: *if the agent weren't here tomorrow, could the developer solve this class of problem alone?*
 
 Do the engineering work exactly as you normally would. This skill only adds three small touchpoints: **before** (plan + why), **after** (walkthrough + check questions), and **grading** (when the user answers). Notes are optional.
 
@@ -66,9 +68,11 @@ Use `templates/chat-summary.md`. Be concise: the compact format fits on one scre
 2. **Why:** the root cause in 1-3 sentences (for features: the requirement and the design constraint that shaped it).
 3. **Alternatives rejected** (full format): 1-3 options and the one-line reason each lost.
 4. **Concepts and tools:** 1-4 named concepts or tools, each with a one-line explanation in context. Give at most 1-2 links, following the source rule below.
-5. **Verified by:** the actual tests or commands you ran and their results. If you did not verify, say so.
-6. **Learn next:** one concrete thing to study or try, sized to ~15-30 minutes.
-7. **Check questions:** 1-2 (compact) or 2-3 (full). Follow `reference/question-guide.md`. **Do not show the answers.** End with: *"Reply with your answers (short is fine), or say `answers` to see them."*
+5. **Verified by:** the actual tests or commands you ran and their results, plus what is *not* covered. If you did not verify, say so.
+6. **Watch in production** (deep tasks only): 1-2 real risks of this change (failure modes, scale, security, observability), one line each.
+7. **Takeaway** (full format): the generalizable lesson in one sentence.
+8. **Learn next:** one concrete thing to study or try, sized to ~15-30 minutes, aimed at moving the main concept one learning state up (for example, rebuild a tiny version without the agent).
+9. **Check questions:** 1-2 (compact) or 2-3 (full). Follow `reference/question-guide.md`. **Do not show the answers.** End with: *"Reply with your answers (short is fine), or say `answers` to see them."*
 
 **Source rule:** link only (a) pages you actually opened during this task, or (b) official documentation home or reference pages you are certain exist (for example the project's official docs site). Otherwise name the doc without a URL ("see the Redis docs on `SET` options"). Never invent a URL, a section anchor, a version number, or a quote.
 
@@ -88,11 +92,12 @@ In autonomous or background runs where nobody can reply, put the walkthrough and
 
 Write a note only when notes are enabled (config `notes: on`, the AGENTS.md line, or the user asks) and the task is standard or deep. For a deep task with notes off, you may offer once per session: *"Want me to save a short learning note for this?"*
 
-- Path: `<notes_dir>/YYYY/MM/YYYY-MM-DD-<slug>.md`, default `notes_dir` = `docs/learning`. Slug: 3-6 lowercase words, hyphenated.
+- Path: `<notes_dir>/YYYY/MM/YYYY-MM-DD-<slug>.md`, default `notes_dir` = `docs/learning`. If the project already has a learning or notes folder and no `notes_dir` is configured, use that folder and its conventions instead. Slug: 3-6 lowercase words, hyphenated.
 - Template: `templates/learning-note-standard.md` or `templates/learning-note-deep.md`. Translate headings into the notes language; keep frontmatter keys and values in English. Keep standard notes under ~40 lines and deep notes under ~80.
 - Put check-question answers in a collapsed callout (`> [!answer]-`) so the note works as a self-quiz later.
 - Use `[[wikilinks]]` only for concept names (Obsidian creates the page on click); don't link to other notes unless they exist.
 - Append one line to `<notes_dir>/index.md` (create it from `templates/index.md` if missing): `- YYYY-MM-DD [[YYYY-MM-DD-<slug>]] — <one-line summary> — concepts: <a>, <b> — state: <state>`.
+- In chat, mention the note path in one line; don't paste the note.
 - After grading, update the note's `learning_state` and the index line if the state changed.
 
 ## 8. Language

@@ -28,6 +28,8 @@ _Reply with your answer, or say `answers`._
 - `path/to/file_a`: <plain-language line>
 - `path/to/file_b`: <plain-language line>
 
+<Deep tasks, optional: one ≤10-line before/after snippet of the key line(s), only if it makes the mechanism clearer than words.>
+
 **Why:** <root cause in 1-3 sentences. For a bug: the exact mechanism, not just "it was broken".>
 
 **Alternatives I rejected**
@@ -38,9 +40,14 @@ _Reply with your answer, or say `answers`._
 - **<concept>**: <one line in context>
 - **<tool/API>**: <one line in context> (<link only if opened this task or certain-to-exist official docs>)
 
-**Verified by:** <tests/commands actually run → result>
+**Verified by:** <tests/commands actually run → result>; not covered: <what wasn't tested>
 
-**Learn next (~20 min):** <one concrete exercise or reading>
+**Watch in production** (deep only)
+- <failure mode / scale / security / observability risk, one line>
+
+**Takeaway:** <the generalizable lesson, one sentence>
+
+**Learn next (~20 min):** <one concrete exercise that moves the main concept one state up, e.g. rebuild a tiny version without the agent>
 
 **Check yourself**
 1. <explain-why question>

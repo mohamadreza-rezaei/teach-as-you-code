@@ -31,6 +31,12 @@ ai_assisted: true
 ## Verification
 <tests/commands actually run and their results; what is still not covered>
 
+## Watch in production
+- <1-2 risks: failure modes, scale, security, observability>
+
+## Takeaway
+<the generalizable lesson, one sentence>
+
 ## Sources
 - <only pages actually opened, or certain official docs; otherwise name without URL>
 

@@ -18,7 +18,7 @@ Writing long post-task documentation doesn't fix this: nobody reads a 16-section
 |---|---|
 | Trivial edit | Nothing. Typos, formatting, renames, and lockfiles are skipped. |
 | Before coding | A 2-4 line plan **with the reason** (the suspected root cause for bugs). In `teach`/`drill` mode, an optional "what would you predict?" line that never blocks. |
-| After coding | A short plain-language walkthrough in chat: what changed file by file, why, alternatives rejected, the concepts and tools involved (with real docs links only), how it was verified, and what to learn next. |
+| After coding | A short plain-language walkthrough in chat: what changed file by file, why, alternatives rejected, the concepts and tools involved (with real docs links only), how it was verified (and what isn't), production risks for deep tasks, a one-line takeaway, and what to learn next. |
 | Check questions | 2-3 short questions (explain-why, predict/what-if, transfer). Answers are hidden until you reply. |
 | Grading | Your answers are marked correct / partial / missing, with model answers and an honest learning-state recommendation. |
 | Notes (optional) | A short Obsidian-friendly Markdown note in `docs/learning/YYYY/MM/` plus a one-line entry in `docs/learning/index.md`. |

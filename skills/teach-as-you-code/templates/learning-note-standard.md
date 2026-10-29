@@ -20,7 +20,9 @@ ai_assisted: true
 
 **Concepts:** [[<Concept A>]], [[<Concept B>]]
 
-**Verified by:** <tests/commands → result>
+**Verified by:** <tests/commands → result; what isn't covered>
+
+**Takeaway:** <the generalizable lesson, one sentence>
 
 **Learn next:** <one item>
 
