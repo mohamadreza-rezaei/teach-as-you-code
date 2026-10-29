@@ -1,0 +1,9 @@
+# Copy to your repo root as .teach-as-you-code.yml (all keys optional).
+
+mode: brief            # off | brief | teach | drill
+notes: off             # on | off: write learning notes for standard/deep tasks
+notes_dir: docs/learning
+language: auto         # auto = the language you write in; or a code like en, fa, de, es
+notes_language: auto   # language for notes; auto = same as chat
+bilingual: false       # true = add the English term in parentheses after translated terms
+drill_topics: []       # optional: concepts you always want to write yourself, e.g. [sql-joins, async-await]
